@@ -19,7 +19,7 @@ Then reads the Armse of each simulation and compute the mean per domain.
 3_results_marmse: This scripts produces outputs for tables 3 to 7, and Appendices
 B, C, and D.
 
-4_results_bias: This scripts produces outputs for tables 9-10 and Appendix E.
+4_results_bias: This scripts produces outputs for tables 9 to 10 and Appendix E.
 
 5_data_cbs: This script reproduces outputs for tables 11 and 12 using data from
 CBS. The data from CBS is in the secure environment of CBS and should be required by
