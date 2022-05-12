@@ -7,7 +7,7 @@ of the program Methodology and Statistics for the Behavioural, Biomedical, and S
 Utrecht University year 2022.
 
 
-The outputs can be replicated as follows: 
+The outputs from the thesis_manuscript can be replicated as follows: 
 
 1_create_function: This scripts creates the necessary functions to generate the
 simulated samples and compute three different estimator for each 
