@@ -9,7 +9,7 @@ Utrecht University year 2022.
 The outputs from the thesis_manuscript can be replicated as follows: 
 
 1_create_function: This scripts creates the necessary functions to generate the
-simulated samples and compute three different estimator for each 
+simulated samples and compute the estimators for each 
 probability, non-probability, and combined samples.
 
 2_storage: This script reads the simulation files and storage the results of the functions.
