@@ -2,6 +2,7 @@
 Masther's thesis 
 
 Sofía Villalobos Aliste (6060714)
+
 Research repository of thesis manuscript produced between September 2021 and May 2022.
 Repository of public access also available on Github:
 https://github.com/svillalobosaliste/master_thesis
