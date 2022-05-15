@@ -1,71 +1,11 @@
 library(xlsx)
-##########################################
-############## COMPUTE BIAS ##############
-##########################################
-bias.eq.1<-expand.grid(k=c(1,4,10,15),
-                     c=c(3,5,8,15),
-                     n.pk=c(10,100,400,900),
-                     n.npk=c(100,1000,2000,6000),
-                     corr=c(0.228,0.632))
 
-bias.eq.2<-expand.grid(k=c(1,4,10,15),
-                       c=c(3,5,8,15),
-                       n.pk=c(10,100,400,900),
-                       n.npk=c(100,1000,2000,6000),
-                       corr=c(0.228,0.632))
-
-bias.uneq.1<-expand.grid(k=c(1,4,10,15),
-                       c=c(3,5,8,15),
-                       n.pk=c(10,100,400,900),
-                       n.npk=c(100,1000,2000,6000),
-                       corr=c(0.228,0.632))
-
-bias.uneq.2<-expand.grid(k=c(1,4,10,15),
-                         c=c(3,5,8,15),
-                         n.pk=c(10,100,400,900),
-                         n.npk=c(100,1000,2000,6000),
-                         corr=c(0.228,0.632))
-
-
-for (i in 1:512){
-  A1<-readRDS(file=paste0("bias_nps_",i,"_eq1.rds"))
-  A2<-readRDS(file=paste0("bias_comb_",i,"_eq1.rds"))
-  bias.eq.1$bias.np[i]<-mean(abs(A1))
-  bias.eq.1$bias.c[i]<-mean(abs(A2))
-  }
-
-for (i in 1:512){
-  A3<-readRDS(file=paste0("bias_nps_",i,"_eq2.rds"))
-  A4<-readRDS(file=paste0("bias_comb_",i,"_eq2.rds"))
-  bias.eq.2$bias.np[i]<-mean(abs(A3))
-  bias.eq.2$bias.c[i]<-mean(abs(A3))
- }
-
-for (i in 1:512){
-  A3<-readRDS(file=paste0("bias_nps_",i,"_eq2.rds"))
-  A4<-readRDS(file=paste0("bias_comb_",i,"_eq2.rds"))
-  bias.eq.2$bias.np[i]<-mean(abs(A3))
-  bias.eq.2$bias.c[i]<-mean(abs(A3))
-}
-
-for (i in 1:512){
-  A5<-readRDS(file=paste0("bias_nps_",i,"_uneq1.rds"))
-  A6<-readRDS(file=paste0("bias_comb_",i,"_uneq1.rds"))
-  bias.uneq.1$bias.np[i]<-mean(abs(A5))
-  bias.uneq.1$bias.c[i]<-mean(abs(A6))
-}
-
-for (i in 1:512){
-  A7<-readRDS(file=paste0("bias_nps_",i,"_uneq2.rds"))
-  A8<-readRDS(file=paste0("bias_comb_",i,"_uneq.rds")) #uneq2
-  bias.uneq.2$bias.np[i]<-mean(abs(A7))
-  bias.uneq.2$bias.c[i]<-mean(abs(A8))
-}
+#open bias_eq_1.rds, bias_eq_2.rds, bias_uneq_1,rds, bias_uneq_2.rds
 
 saveRDS(bias.eq.1,file=paste0("bias_eq_1.rds"))  
 saveRDS(bias.eq.2,file=paste0("bias_eq_2.rds")) 
 saveRDS(bias.uneq.1,file=paste0("bias_uneq_1.rds")) 
-saveRDS(bias.uneq.2,file=paste0("bias_uneq_2.rds")) 
+saveRDS(bias.uneq.2,file=paste0("bias_uneq_2.rds"))
 
 ##################################################
 ############## SPLIT PER SELECTIVITY #############
@@ -197,6 +137,9 @@ x5<-table(bias_uneq_1_weak$prop)
 x6<-table(bias_uneq_1_sev$prop)
 x7<-table(bias_uneq_2_weak$prop)
 x8<-table(bias_uneq_2_sev$prop)
+
+proportion_bias<-rbind(x1,x2,x3,x4,x5,x6,x7,x8)
+write.xlsx(proportion_bias,file="proportion_bias.xlsx")
 
 ##################################################################### 
 ##################### BIAS OF COMBINED ESTIMATOR ####################  

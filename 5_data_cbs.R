@@ -25,7 +25,8 @@ cities_3<-cbind(cit$firs,cit$second,cit$third)
 cbs3<-prop.table(cities_3,1)
 
 cbs3<-round(cbs3,digits=2)
-#write.xlsx(cbs3,file="cbs3.xlsx")
+
+write.xlsx(cbs3,file="cbs3.xlsx")
 ###############################################################################
 ########### COMPUTING PROB-NONPROB ESTIMATES : 3 CATEGORIES ###################
 ###############################################################################
@@ -52,7 +53,8 @@ prob3[[1]]<-NULL
 prob3<-data.matrix(prob3)
 
 prob3<-round(prob3,digits=2)
-#write.xlsx(prob3,file="prob3.xlsx")
+write.xlsx(prob3,file="prob3.xlsx")
+
 #####nonprob#####
 x1<-as.data.frame(nonprob.table)
 

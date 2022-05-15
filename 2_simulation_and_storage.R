@@ -71,11 +71,13 @@ for (t in 1:nrow(cond.uneq)){
   saveRDS(x[[9]],file=paste0("armse_nps_",t,"_uneq2.rds"))
   saveRDS(x[[10]],file=paste0("armse_comb_",t,"_uneq2.rds"))
   saveRDS(x[[11]],file=paste0("bias_nps_",t,"_uneq2.rds"))
-  saveRDS(x[[12]],file=paste0("bias_comb_",t,"_uneq.rds"))  
+  saveRDS(x[[12]],file=paste0("bias_comb_",t,"_uneq.rds")) 
 }
 
+##################################################################################
+####### Read ARMSE of each simulation and compute the mean per domain ############
+##################################################################################
 
-####### Read ARMSE of each simulation and compute the mean per domain ###################
 # For equal size categories
 for (i in 1:512){
   X1<-readRDS(file=paste0("armse_ps_",i,"_eq1.rds"))
@@ -110,3 +112,74 @@ for (i in 1:512){
   cond.uneq$armse.comb2[i]<-mean(X6)
 }
 
+saveRDS(cond.eq,file="cond_eq.rds")  
+saveRDS(cond.uneq,file="cond_uneq.rds") 
+
+##################################################################################
+############## Read bias and compuete absolute mean bias per domain ##############
+##################################################################################
+
+bias.eq.1<-expand.grid(k=c(1,4,10,15),
+                       c=c(3,5,8,15),
+                       n.pk=c(10,100,400,900),
+                       n.npk=c(100,1000,2000,6000),
+                       corr=c(0.228,0.632))
+
+bias.eq.2<-expand.grid(k=c(1,4,10,15),
+                       c=c(3,5,8,15),
+                       n.pk=c(10,100,400,900),
+                       n.npk=c(100,1000,2000,6000),
+                       corr=c(0.228,0.632))
+
+bias.uneq.1<-expand.grid(k=c(1,4,10,15),
+                         c=c(3,5,8,15),
+                         n.pk=c(10,100,400,900),
+                         n.npk=c(100,1000,2000,6000),
+                         corr=c(0.228,0.632))
+
+bias.uneq.2<-expand.grid(k=c(1,4,10,15),
+                         c=c(3,5,8,15),
+                         n.pk=c(10,100,400,900),
+                         n.npk=c(100,1000,2000,6000),
+                         corr=c(0.228,0.632))
+
+
+for (i in 1:512){
+  A1<-readRDS(file=paste0("bias_nps_",i,"_eq1.rds"))
+  A2<-readRDS(file=paste0("bias_comb_",i,"_eq1.rds"))
+  bias.eq.1$bias.np[i]<-mean(abs(A1))
+  bias.eq.1$bias.c[i]<-mean(abs(A2))
+}
+
+for (i in 1:512){
+  A3<-readRDS(file=paste0("bias_nps_",i,"_eq2.rds"))
+  A4<-readRDS(file=paste0("bias_comb_",i,"_eq2.rds"))
+  bias.eq.2$bias.np[i]<-mean(abs(A3))
+  bias.eq.2$bias.c[i]<-mean(abs(A3))
+}
+
+for (i in 1:512){
+  A3<-readRDS(file=paste0("bias_nps_",i,"_eq2.rds"))
+  A4<-readRDS(file=paste0("bias_comb_",i,"_eq2.rds"))
+  bias.eq.2$bias.np[i]<-mean(abs(A3))
+  bias.eq.2$bias.c[i]<-mean(abs(A3))
+}
+
+for (i in 1:512){
+  A5<-readRDS(file=paste0("bias_nps_",i,"_uneq1.rds"))
+  A6<-readRDS(file=paste0("bias_comb_",i,"_uneq1.rds"))
+  bias.uneq.1$bias.np[i]<-mean(abs(A5))
+  bias.uneq.1$bias.c[i]<-mean(abs(A6))
+}
+
+for (i in 1:512){
+  A7<-readRDS(file=paste0("bias_nps_",i,"_uneq2.rds"))
+  A8<-readRDS(file=paste0("bias_comb_",i,"_uneq.rds")) #uneq2
+  bias.uneq.2$bias.np[i]<-mean(abs(A7))
+  bias.uneq.2$bias.c[i]<-mean(abs(A8))
+}
+
+saveRDS(bias.eq.1,file=paste0("bias_eq_1.rds"))  
+saveRDS(bias.eq.2,file=paste0("bias_eq_2.rds")) 
+saveRDS(bias.uneq.1,file=paste0("bias_uneq_1.rds")) 
+saveRDS(bias.uneq.2,file=paste0("bias_uneq_2.rds")) 

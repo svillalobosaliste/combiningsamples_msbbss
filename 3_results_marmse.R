@@ -1,6 +1,6 @@
-library("xlsx")
-cond_equal <- readRDS("C:/Users/svill/Desktop/mg/1_thesis/results/cond_equal.rds")
-cond_uneq <- readRDS("C:/Users/svill/Desktop/mg/1_thesis/results/cond_uneq.rds")
+library(xlsx)
+
+#open cond_eq.rds and cond_uneq.rds
 
 ################################################
 ### SPLIT COND_EQ AND COND_UNEQ PER APPROACH ###
@@ -288,8 +288,8 @@ write.xlsx(e2s, file = "eq2sev.xlsx")
 write.xlsx(un1s, file = "uneq1sev.xlsx")
 write.xlsx(un2s, file = "uneq2sev.xlsx")
 
-#These tables are used in excel along with the previous tables to coloured the tables according
-#to the armse being lower.
+#These tables are used in excel along with the previous tables to coloured the tables depending
+#on the armse being lower. This resulting tables are the ones shown in the report.
 
 ###################
 p.marmse.table<-function(data,rows){

@@ -25,7 +25,7 @@ generate.sample <- function(
   return(combined_sample)
 }
 
-#Element that will be saved in a list by each function:
+#Elements that will be saved in a list by each function:
 
 #1=estimates
 #2=mean squared error of probability sample
@@ -35,7 +35,7 @@ generate.sample <- function(
 #6=root mean squared error of non-probability sample
 #7=root mean squared error of combined estimator
 #8=average root mean squared error of probability sample 
-#9= average root mean squared error of non-proability sample 
+#9= average root mean squared error of non-probability sample 
 #10= average root mean squared error of combined estimator
 #11= bias of non-probability sample 
 #12=bias of combined estimator
