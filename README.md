@@ -4,7 +4,6 @@ Master's thesis
 Sofía Villalobos Aliste (6060714)
 
 Research repository of thesis manuscript produced between September 2021 and May 2022. 
-The repository of public access is also available on Github: https://github.com/svillalobosaliste/master_thesis
 
 This repository contains all the information regarding the master thesis and internship project at the Centraal Bureau voor de Statstiek "Combining probability and non-probability samples for estimation", of the program Methodology and Statistics for the Behavioural, Biomedical, and Social Sciences, Utrecht University year 2022.
 
