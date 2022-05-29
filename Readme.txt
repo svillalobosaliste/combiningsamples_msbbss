@@ -4,8 +4,6 @@ Sofía Villalobos Aliste (6060714)
 s.f.villalobosaliste@students.uu.nl
 
 Research repository of thesis manuscript produced between September 2021 and May 2022. 
-The repository is of public access and is also available on Github: 
-https://github.com/svillalobosaliste/master_thesis
 
 This repository contains all the information regarding the master thesis and internship project at the
 Centraal Bureau Voor de Statstiek "Combining probability and non-probability samples for estimation", 
@@ -76,8 +74,7 @@ This script is self-sufficient and includes the functions to generate the sample
 the storage of the results of the MARMSE, and a summary table.
 
 #######################
-*to get access visit: https://www.cbs.nl/en-gb/our-services/customised-services-microdata/microdata-conducting-your-own-research
-or email microdata@cbs.nl for more information.
+*to get access visit: https://www.cbs.nl/en-gb/our-services/customised-services-microdata/microdata-conducting-your-own-research or email microdata@cbs.nl for more information.
 #######################
 Postprocessing:
 To obtain tables 3 to 10 of the thesis manuscript, and Appendices B, C, D, and E, all the output tables with 
